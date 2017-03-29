@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="wap_configuration" translate="label" sortOrder="1">
+            <label>WallArtPrints</label>
+        </tab>
+        <section id="global" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Global</label>
+            <tab>wap_configuration</tab>
+            <resource>SM_Widgets::global_config</resource>
+            <group id="widget" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Widget</label>
+                <field id="excerpt_max_character" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Blog Excerpt Max Character</label>
+                    <comment>Maximum character for Blog excerpt post item</comment>
+                </field>
+                <field id="category_featured_amount" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Featured Collection Amount</label>
+                    <comment>Number of featured collection in Category Page</comment>
+                </field>
+            </group>
+            <group id="product" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product</label>
+                <field id="see_more_amount" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>See More Amount</label>
+                    <comment>The maximum amount of product to show See More button</comment>
+                </field>
+                <field id="weight_unit" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Weight Unit</label>
+                    <comment>The default is kilogram (kg)</comment>
+                </field>
+                <field id="dimension_unit" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Box Dimension Unit</label>
+                    <comment>The default is centimeter (cm)</comment>
+                </field>
+            </group>
+            <group id="social_share" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Social Share</label>
+                <field id="twitter_site_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twitter Site Name</label>
+                    <comment>The site name for Twitter share (e.g: wallartprints)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

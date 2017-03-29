@@ -1,0 +1,16 @@
+{
+  "name": "unetstudio/magento-2-social-share",
+  "description": "Social share toolbar for Magento 2 site Edit",
+  "type": "magento2-module",
+  "license": ["GNU"],
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "magento/framework": "~100.0"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "UNET\\SocialShare\\": ""
+    }
+  }
+}

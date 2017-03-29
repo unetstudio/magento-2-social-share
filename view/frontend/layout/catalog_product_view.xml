@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="robots" content="noindex,follow,noodp,noydir" />
+    </head>
+    <body>
+        <referenceContainer name="head.additional">
+            <block class="Magento\Catalog\Block\Product\View" name="product.share.components" template="Magento_Catalog::product/view/share/components.phtml" />
+        </referenceContainer>
+        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
+        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+        <move element="product.info.price" destination="product.info" before="-"/>
+        <move element="product.info.options.wrapper" destination="product.info" before="-"/>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="product.header.info" template="Magento_Catalog::product/view/header.phtml" before="product.info.price" />
+            <block class="Magento\Cms\Block\Block" name="product_details_slogan" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">product_details_slogan</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="product.instruction.info" template="Magento_Catalog::product/view/instruction.phtml" after="-">
+                <block class="Magento\Cms\Block\Block" name="product_details_delivery"  after="-">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">product_details_delivery</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+        <move element="page.main.title" destination="product.header.info" before="-"/>
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="product.info.social" remove="true" />
+        <referenceContainer name="product.info.stock.sku" remove="true" />
+        <referenceContainer name="view.addto.compare" remove="true" />
+        <referenceContainer name="product.info.details" remove="true" />
+        <referenceBlock name="product.info">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.addto" as="addto.custom" template="Magento_Catalog::product/view/addto.phtml" />
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.shareto" as="shareto" template="Magento_Catalog::product/view/shareto.phtml" />
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.size.mapping" as="size.mapping" template="Magento_Catalog::product/view/size_mapping.phtml" />
+        </referenceBlock>
+
+        <referenceContainer name="content.aside" htmlClass="product-detail-grid" htmlTag="div">
+            <block class="Magento\Catalog\Block\Product\View" name="content.aside.container" template="Magento_Catalog::product/view/aside.phtml" before="-" >
+                <block class="SM\Widgets\Block\Product\ProductList\PublicRelated" name="product.public.related" template="Magento_Catalog::product/list/public.phtml" before="-" >
+                    <arguments>
+                        <argument name="type" xsi:type="string">public_related</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.viewed.component" template="Magento_Catalog::product/view/viewed.phtml" />
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name='product.info.upsell'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/list/upsell.phtml</argument>
+            </action>
+        </referenceBlock>
+        <move element="product.info.upsell" destination="content.aside.container" />
+        <referenceBlock name="upsell.product.addto" remove="true" />
+
+        <referenceBlock name='catalog.product.related'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/list/related.phtml</argument>
+            </action>
+        </referenceBlock>
+        <move element="catalog.product.related" destination="content.aside.container" />
+        <referenceBlock name="related.product.addto" remove="true" />
+
+        <!-- For override Magento\Catalog\Block\Product\View -->
+        <referenceBlock name='product.info.review'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/review.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name='product.info'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/form.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name='product.info.addtocart'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/addtocart.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name='product.info.options.wrapper'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/options/wrapper.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name='product.info.options.wrapper.bottom'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/options/wrapper/bottom.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name='product.info.addtocart.additional'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/addtocart.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name='product.info.addto'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/addto.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name='product.info.mailto'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/mailto.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <!-- For override Magento\Catalog\Block\Product\View\Options -->
+        <referenceBlock name='product.info.options'>
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magento_Catalog::product/view/options.phtml</argument>
+            </action>
+        </referenceBlock>
+
+    </body>
+</page>
