@@ -9,15 +9,15 @@
 /** @var $block \Magento\Catalog\Block\Product\View */
 ?>
 <?php
-    $_themeHelper = $this->helper('\SM\Theme\Helper\Data');
+    $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
     $baseUrl = $_themeHelper->getBaseUrl();
     $language = $_themeHelper->getLanguage();
     $url = $block->getProduct()->getProductUrl();
     $canonicalUrl = $block->getProduct()->getProductUrl();
-    $twitterSite = $_themeHelper->getStoreConfig('global/social_share/twitter_site_name');
+    $twitterSite = $_themeHelper->getStoreConfig('unet_studio/social_share/twitter_site_name');
 ?>
 
-<?php if ($language == \SM\Theme\Helper\Data::MAIN_LANGUAGE): ?>
+<?php if ($language == \Unet\SocialShare\Helper\Data::MAIN_LANGUAGE): ?>
 <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="x-default" />
 <?php else: ?>
 <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="<?php /* @escapeNotVerified */ echo $language; ?>" />

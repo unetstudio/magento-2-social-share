@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
+    $baseUrl = $_themeHelper->getBaseUrl();
+    $site = $_themeHelper->getStoreName();
+    $type= 'og:page';
+    $title = (!empty($_themeHelper->getTitle())) ? $_themeHelper->getTitle() : '';
+    $description = '';
+    $image = '';
+    $url = $_themeHelper->getCurrentStoreUrl(false);
+    $canonicalUrl = $_themeHelper->getCurrentUrl();
+    if ($_themeHelper->getCmsPage()->getIdentifier()) {
+        $page = $_themeHelper->getCmsPage();
+        $title = $page->getTitle();
+        $description = $page->getData('meta_description');
+    }
+    else if ($_themeHelper->getCurrentCategory()) {
+        $category = $_themeHelper->getCurrentCategory();
+        $type = __('og:category');
+        $url = $category->getUrl();
+        $canonicalUrl = $category->getUrl();
+        $title = $category->getName();
+        $description = $category->getData('meta_description');
+        $image = $category->getImageUrl();
+    }
+
+    if (empty($image)) {
+        $image = $_themeHelper->getLogoSrc();
+    }
+
+    if (empty($description)) {
+        $description = $_themeHelper->getDefaultDescription();
+    }
+
+    $language = $_themeHelper->getLanguage();
+    $twitterSite = $_themeHelper->getStoreConfig('unet_studio/social_share/twitter_site_name');
+
+?>
+
+<?php if ($language == \Unet\SocialShare\Helper\Data::MAIN_LANGUAGE): ?>
+<link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="x-default" />
+<?php else: ?>
+<link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="<?php /* @escapeNotVerified */ echo $language; ?>" />
+<?php endif; ?>
+<link rel="canonical" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($canonicalUrl); ?>" />
+
+<!-- Open Graph data -->
+<meta property="og:type" content="<?php /* @escapeNotVerified */ echo $type; ?>" />
+<meta property="og:title" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($title); ?>" />
+<meta property="og:image" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($image); ?>" />
+<meta property="og:description" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($description); ?>" />
+<meta property="og:url" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($url); ?>" />
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="<?php /* @escapeNotVerified */ echo 'summary'; ?>" />
+<meta name="twitter:site" content="<?php /* @escapeNotVerified */ echo '@'.$twitterSite; ?>" />
+<meta name="twitter:title" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($title); ?>" />
+<meta name="twitter:description" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($description); ?>" />
+<meta name="twitter:image" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($image); ?>" />

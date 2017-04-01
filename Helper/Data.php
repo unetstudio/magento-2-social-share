@@ -1,12 +1,12 @@
 <?php
 
-namespace SM\Theme\Helper;
+namespace Unet\SocialShare\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 
 /**
  * Class Data
- * @package SM\Theme\Helper
+ * @package Unet\SocialShare\Helper
  */
 class Data extends AbstractHelper
 {
@@ -41,11 +41,6 @@ class Data extends AbstractHelper
     protected $_storeManager;
 
     /**
-     * @var \SM\Multivendor\Model\MappingSizeFactory
-     */
-    protected $mappingSizeFactory;
-
-    /**
      * @var \Magento\Eav\Model\Config
      */
     protected $eavConfig;
@@ -59,7 +54,6 @@ class Data extends AbstractHelper
      * const
      */
     const MAIN_LANGUAGE = 'en-US';
-    const WAP_COLORS = 'wap_colors';
 
     /**
      * Data constructor.
@@ -70,7 +64,6 @@ class Data extends AbstractHelper
      * @param \Magento\Framework\View\Page\Title $pageTitle
      * @param \Magento\Theme\Block\Html\Header\Logo $logo
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \SM\Multivendor\Model\MappingSizeFactory $mappingSizeFactory
      * @param \Magento\Eav\Model\Config $eavConfig
      * @param \Magento\Swatches\Helper\Data $_swatchHelper
      */
@@ -82,7 +75,6 @@ class Data extends AbstractHelper
         \Magento\Framework\View\Page\Title $pageTitle,
         \Magento\Theme\Block\Html\Header\Logo $logo,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \SM\Multivendor\Model\MappingSizeFactory $mappingSizeFactory,
         \Magento\Eav\Model\Config $eavConfig,
         \Magento\Swatches\Helper\Data $_swatchHelper
     ){
@@ -92,7 +84,6 @@ class Data extends AbstractHelper
         $this->_pageTitle = $pageTitle;
         $this->_logo = $logo;
         $this->_storeManager = $storeManager;
-        $this->mappingSizeFactory = $mappingSizeFactory;
         $this->eavConfig = $eavConfig;
         $this->_swatchHelper = $_swatchHelper;
 
@@ -119,7 +110,6 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @param bool $fromStore
      * @return mixed
      */
     public function getBaseUrl()
@@ -220,21 +210,6 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @return mixed
-     */
-    public function getSeeMoreAmount()
-    {
-        $see_mote_amount =  $this->scopeConfig->getValue(
-            'global/product/see_more_amount',
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $this->_storeManager->getStore()->getStoreId()
-        );
-
-        return $see_mote_amount;
-    }
-
-
-    /**
      * @return string
      */
     public function getLanguage()
@@ -259,62 +234,10 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @return mixed
-     */
-    public function getSizeMapping()
-    {
-        $mappingSize = $this->mappingSizeFactory->create()->getCollection();
-        $items = [];
-
-        foreach ($mappingSize as $_item) {
-            $items[] = $_item->getData();
-        }
-
-        return $items;
-    }
-
-    /**
-     * @return string
-     */
-    public function getShareConfig() {
-        $config = [
-            'facebook' => \SM\Theme\Api\SocialAdapter::FACEBOOK_SHARE_LINK,
-            'twitter' => \SM\Theme\Api\SocialAdapter::TWITTER_SHARE_LINK,
-            'google-plus' => \SM\Theme\Api\SocialAdapter::GOOGLE_PLUS_SHARE_LINK,
-            'pinterest' => \SM\Theme\Api\SocialAdapter::PINTEREST_SHARE_LINK
-        ];
-
-        return $config;
-    }
-
-    /**
-     * @return array
-     */
-    public function getColorOptions() {
-        $attribute = $this->eavConfig->getAttribute('catalog_product', 'color');
-        $options = $attribute->getSource()->getAllOptions();
-        $optionIds = [];
-
-        foreach ($options as $_option) {
-            $optionIds[] = $_option;
-        }
-
-        $colors = $this->_swatchHelper->getSwatchesByOptionsId($optionIds);
-
-        foreach ($optionIds as $_option) {
-            if (!empty(trim($_option['label']))) {
-                $colors[$_option['value']]['label'] = $_option['label'];
-            }
-        }
-
-        return $colors;
-    }
-
-    /**
      * @param $attribute
      * @return array
      */
-    public function getWapAttributeOptions($attribute) {
+    public function getProductAttributeOptions($attribute) {
         $attribute = $this->eavConfig->getAttribute('catalog_product', $attribute);
         $options = $attribute->getSource()->getAllOptions();
 

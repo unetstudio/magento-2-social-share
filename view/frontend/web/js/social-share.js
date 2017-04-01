@@ -8,10 +8,12 @@ define(["jquery"], function ($) {
     return function socialShare(data) {
         var socialShare = {
             config: data.config,
-            currentStoreUrl: data.currentStoreUrl,
-            shareBlock: '.product-shareto-links .share-list',
-            shareButton: '.product-shareto-links .toggle',
+            url: data.url,
+            title: data.title,
+            shareBlock: '#shareto .share-list',
+            shareButton: '#shareto .button',
             itemClass: 'share-icon',
+            iconFont: 'entypo',
             iconType: 'square',
             width: 800,
             height: 600,
@@ -21,11 +23,12 @@ define(["jquery"], function ($) {
              */
             init: function() {
                 this.click();
-                this.render(this.config, this.currentStoreUrl);
+                this.render(this.config, this.url);
                 this.openPopup();
             },
 
             /**
+             * TODO
              * Click action
              */
             click: function () {
@@ -37,20 +40,33 @@ define(["jquery"], function ($) {
             /**
              * render share items
              * @param config
-             * @param currentStoreUrl
+             * @param url
              */
-            render: function (config, currentStoreUrl) {
+            render: function (config, url) {
                 var $this = this;
                 var shareBlock = $(this.shareBlock);
                 for (var key in config) {
                     if (config.hasOwnProperty(key)) {
-                        var shareItem = $('<li>', {class: $this.itemClass});
+                        var shareItem = $('<li>', {class: $this.itemClass + ' ' + $this.iconFont + '-' + key});
                         var shareLink = $('<a>');
-                        var shareIcon = $('<i>', {class: 'fa fa-' + key + '-' + $this.iconType});
+                        var href = '';
+                        switch (key) {
+                            case 'facebook':
+                                href = config[key] + '?u=' + url + '&title=' + $this.title;
+                                break;
+                            case 'twitter':
+                                href = config[key] + '?text=' + $this.title + '&url=' + url;
+                                break;
+                            case 'gplus':
+                                href = config[key] + '?url=' + url;
+                                break;
+                            case 'pinterest':
+                                href = config[key] + '?url=' + url + '&description=' + $this.title;
+                                break;
+                        }
 
                         // render item
-                        shareLink.attr('href', config[key] + currentStoreUrl);
-                        shareLink.append(shareIcon);
+                        shareLink.attr('href', href);
                         shareItem.append(shareLink);
                         shareBlock.append(shareItem);
                     }

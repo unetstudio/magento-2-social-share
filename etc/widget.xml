@@ -1,68 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="featured_collections_widget" class="SM\Widgets\Block\Widget\Collections">
-        <label translate="true">Featured Collections Widget</label>
-        <description>Featured Collections Widget</description>
-        <parameters>
-            <parameter name="title" xsi:type="text" visible="true" required="false" sort_order="0">
-                <label translate="true">Title</label>
-                <value>Featured Collections</value>
-            </parameter>
-            <parameter name="numberOfCategory" xsi:type="text" visible="true" required="true" sort_order="1">
-                <label translate="true">Number of category</label>
-                <value>8</value>
-            </parameter>
-        </parameters>
-    </widget>
-    <widget id="featured_prints_widget" class="SM\Widgets\Block\Widget\Prints">
-        <label translate="true">Featured Prints Widget</label>
-        <description>Featured Prints Widget</description>
-        <parameters>
-            <parameter name="title" xsi:type="text" visible="true" required="false" sort_order="0">
-                <label translate="true">Title</label>
-                <value>Featured Prints</value>
-            </parameter>
-            <parameter name="numberOfProduct" xsi:type="text" visible="true" required="true" sort_order="1">
-                <label translate="true">Number of product</label>
-                <value>20</value>
-            </parameter>
-            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="10">
-                <label translate="true">Category</label>
-                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
-                        </item>
-                    </data>
-                </block>
-            </parameter>
-        </parameters>
-    </widget>
-    <widget id="blog_widget" class="SM\Widgets\Block\Widget\Blog\View">
-        <label translate="true">Blog Widget</label>
-        <description>Blog Widget</description>
-        <parameters>
-            <parameter name="title" xsi:type="text" visible="true" required="false" sort_order="0">
-                <label translate="true">Title</label>
-                <value>Blog</value>
-            </parameter>
-            <parameter name="numberOfPost" xsi:type="text" visible="true" required="true" sort_order="1">
-                <label translate="true">Number of Posts</label>
-                <value>4</value>
-            </parameter>
-        </parameters>
-    </widget>
-    <widget id="about_widget" class="SM\Widgets\Block\Widget\About">
-        <label translate="true">About WallArtPrints Widget</label>
-        <description>About WallArtPrints Widget</description>
-    </widget>
-    <widget id="trustpilot_widget" class="SM\Widgets\Block\Widget\Trustpilot">
-        <label translate="true">Trustpilot Widget</label>
-        <description>Trustpilot Widget</description>
-    </widget>
-    <widget id="brand_lists_widget" class="SM\Widgets\Block\Widget\Brand">
-        <label translate="true">Brand Lists Widget</label>
-        <description>Brand Lists Widget</description>
+    <widget id="social_share_widget" class="Unet\SocialShare\Block\Widget\ShareTo"
+        placeholder_image="Unet_SocialShare::images/widget_share.png">
+        <label translate="true">Unet Social Share Widget</label>
+        <description>Social Share Widget</description>
     </widget>
 </widgets>

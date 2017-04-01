@@ -6,7 +6,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="SM_Widgets::global_config" title="WAP Global" sortOrder="50" />
+                            <resource id="Unet_SocialShare::unet_studio" title="UNET Studio" sortOrder="100" />
                         </resource>
                     </resource>
                 </resource>

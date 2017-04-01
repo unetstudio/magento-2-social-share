@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View*/
+?>
+<div id="shareto" class="shareto" data-role="share-to-links">
+	<div class="social">
+        <ul class="share-list"></ul>
+    </div>
+</div>
+
+<?php
+    $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
+?>
+<script type="text/x-magento-init">
+    {
+        "[data-role=share-to-links]": {
+            "Unet_SocialShare/js/social-share" : {
+                "title": "<?php /* @escapeNotVerified */ echo $_themeHelper->getTitle(); ?>",
+                "url": "<?php /* @escapeNotVerified */ echo $_themeHelper->getCurrentStoreUrl(); ?>",
+                "config": <?php /* @escapeNotVerified */ echo json_encode($block->getShareConfig()); ?>
+            }
+        }
+    }
+</script>

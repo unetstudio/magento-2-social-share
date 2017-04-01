@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <css src="SM_Theme::css/owl.carousel.min.css" />
-        <css src="SM_Theme::css/owl.theme.default.min.css" />
-    </head>
     <body>
         <referenceBlock name="head.additional">
-            <block class="Magento\Framework\View\Element\Template" name="opengraph.general" template="SM_Theme::opengraph.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" ifconfig="social_share/general/enable" name="opengraph.general" template="Unet_SocialShare::opengraph.phtml" before="social.share.components" />
+            <block class="Magento\Framework\View\Element\Template" ifconfig="social_share/general/enable" name="social.share.components" template="Unet_SocialShare::components.phtml" after="-" />
         </referenceBlock>
+        <referenceContainer name="root">
+            <block class="Unet\SocialShare\Block\ShareTo" ifconfig="social_share/general/enable" name="content.shareto" template="Unet_SocialShare::shareto.phtml" after="-" />
+        </referenceContainer>
     </body>
 </page>

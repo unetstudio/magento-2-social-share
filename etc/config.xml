@@ -6,13 +6,14 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
-    <stores>
-        <admin>
-            <design>
-                <theme>
-                    <default>SM/Wap</default>
-                </theme>
-            </design>
-        </admin>
-    </stores>
+    <default>
+        <social_share>
+            <general>
+                <enable>1</enable>
+            </general>
+            <network>
+                <twitter_site_name>unetstudio</twitter_site_name>
+            </network>
+        </social_share>
+    </default>
 </config>
