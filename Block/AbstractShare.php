@@ -11,7 +11,8 @@ class AbstractShare extends \Magento\Framework\View\Element\Template implements 
     /**
      * @return array
      */
-    public function getShareConfig() {
+    public function getShareConfig()
+    {
         $config = [
             'facebook' => \Unet\SocialShare\Api\SocialAdapter::FACEBOOK_SHARE_LINK,
             'twitter' => \Unet\SocialShare\Api\SocialAdapter::TWITTER_SHARE_LINK,

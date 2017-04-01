@@ -11,14 +11,15 @@ class ShareTo extends \Unet\SocialShare\Block\AbstractShare
     /**
      * @var string
      */
-    private $_template = "Unet_SocialShare::shareto.phtml";
+    private $template = "Unet_SocialShare::shareto.phtml";
 
     /**
      * setTemplate
+     * __construct
      */
-    protected function _construct()
+    protected function __construct()
     {
-        parent::_construct();
-        $this->setTemplate($this->_template);
+        parent::__construct();
+        $this->setTemplate($this->template);
     }
 }

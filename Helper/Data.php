@@ -1,6 +1,7 @@
 <?php
 
 namespace Unet\SocialShare\Helper;
+
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 
@@ -13,32 +14,32 @@ class Data extends AbstractHelper
     /**
      * @var \Magento\Framework\Registry
      */
-    protected $_registry;
+    protected $registry;
 
     /**
      * @var \Magento\Cms\Model\Page
      */
-    protected $_page;
+    protected $page;
 
     /**
      * @var \Magento\Framework\View\Page\Title
      */
-    protected $_pageTitle;
+    protected $pageTitle;
 
     /**
      * @var \Magento\Theme\Block\Html\Header\Logo
      */
-    protected $_logo;
+    protected $logo;
 
     /**
      * @var \Magento\Directory\Model\Currency
      */
-    protected $_currency;
+    protected $currency;
 
     /**
      * @var \Magento\Store\Model\StoreManagerInterface
      */
-    protected $_storeManager;
+    protected $storeManager;
 
     /**
      * @var \Magento\Eav\Model\Config
@@ -48,7 +49,7 @@ class Data extends AbstractHelper
     /**
      * @var \Magento\Swatches\Helper\Data
      */
-    protected $_swatchHelper;
+    protected $swatchHelper;
 
      /**
      * const
@@ -65,7 +66,7 @@ class Data extends AbstractHelper
      * @param \Magento\Theme\Block\Html\Header\Logo $logo
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      * @param \Magento\Eav\Model\Config $eavConfig
-     * @param \Magento\Swatches\Helper\Data $_swatchHelper
+     * @param \Magento\Swatches\Helper\Data $swatchHelper
      */
     public function __construct(
         Context $context,
@@ -76,16 +77,16 @@ class Data extends AbstractHelper
         \Magento\Theme\Block\Html\Header\Logo $logo,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Eav\Model\Config $eavConfig,
-        \Magento\Swatches\Helper\Data $_swatchHelper
-    ){
-        $this->_currency = $currency;
-        $this->_registry = $registry;
-        $this->_page = $page;
-        $this->_pageTitle = $pageTitle;
-        $this->_logo = $logo;
-        $this->_storeManager = $storeManager;
+        \Magento\Swatches\Helper\Data $swatchHelper
+    ) {
+        $this->currency = $currency;
+        $this->registry = $registry;
+        $this->page = $page;
+        $this->pageTitle = $pageTitle;
+        $this->logo = $logo;
+        $this->storeManager = $storeManager;
         $this->eavConfig = $eavConfig;
-        $this->_swatchHelper = $_swatchHelper;
+        $this->swatchHelper = $swatchHelper;
 
         parent::__construct($context);
     }
@@ -98,7 +99,7 @@ class Data extends AbstractHelper
      */
     public function getCurrentCurrencySymbol()
     {
-        return $this->_currency->getCurrencySymbol();
+        return $this->currency->getCurrencySymbol();
     }
 
      /**
@@ -106,7 +107,7 @@ class Data extends AbstractHelper
      */
     public function getStoreName()
     {
-        return $this->_storeManager->getStore()->getName();
+        return $this->storeManager->getStore()->getName();
     }
 
     /**
@@ -114,7 +115,7 @@ class Data extends AbstractHelper
      */
     public function getBaseUrl()
     {
-        return $this->_storeManager->getStore()->getBaseUrl();
+        return $this->storeManager->getStore()->getBaseUrl();
     }
 
     /**
@@ -122,7 +123,7 @@ class Data extends AbstractHelper
      */
     public function getTitle()
     {
-        return $this->_pageTitle->getShort();
+        return $this->pageTitle->getShort();
     }
 
     /**
@@ -130,7 +131,7 @@ class Data extends AbstractHelper
      */
     public function getLogoSrc()
     {
-        return $this->_logo->getLogoSrc();
+        return $this->logo->getLogoSrc();
     }
 
     /**
@@ -142,18 +143,24 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @param bool $fromStore
+     * @param $fromStore
      * @return mixed
      */
-    public function getCurrentStoreUrl($fromStore = false) {
-        return $this->_storeManager->getStore()->getCurrentUrl($fromStore);
+    public function getCurrentStoreUrl($fromStore)
+    {
+        if (empty($fromStore)) {
+            $fromStore = false;
+        }
+
+        return $this->storeManager->getStore()->getCurrentUrl($fromStore);
     }
 
     /**
      * @return \Magento\Cms\Model\Page
      */
-    public function getCmsPage() {
-        return $this->_page;
+    public function getCmsPage()
+    {
+        return $this->page;
     }
 
     /**
@@ -161,7 +168,7 @@ class Data extends AbstractHelper
      */
     public function getCurrentCategory()
     {
-        return $this->_registry->registry('current_category');
+        return $this->registry->registry('current_category');
     }
 
     /**
@@ -173,7 +180,7 @@ class Data extends AbstractHelper
         $config =  $this->scopeConfig->getValue(
             $path,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $this->_storeManager->getStore()->getStoreId()
+            $this->storeManager->getStore()->getStoreId()
         );
 
         return $config;
@@ -187,7 +194,7 @@ class Data extends AbstractHelper
         $description = $this->scopeConfig->getValue(
             'design/head/default_description',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $this->_storeManager->getStore()->getStoreId()
+            $this->storeManager->getStore()->getStoreId()
         );
 
         $description = (!empty($description)) ? $description : '';
@@ -203,7 +210,7 @@ class Data extends AbstractHelper
         $locale = $this->scopeConfig->getValue(
             'general/locale/code',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $this->_storeManager->getStore()->getStoreId()
+            $this->storeManager->getStore()->getStoreId()
         );
 
         return $locale;
@@ -228,20 +235,20 @@ class Data extends AbstractHelper
      */
     public function getPlaceholderImage()
     {
-        $image_placeholder = $this->scopeConfig->getValue('catalog/placeholder/image_placeholder');
+        $imagePlaceholder = $this->scopeConfig->getValue('catalog/placeholder/image_placeholder');
 
-        return $image_placeholder;
+        return $imagePlaceholder;
     }
 
     /**
      * @param $attribute
      * @return array
      */
-    public function getProductAttributeOptions($attribute) {
+    public function getProductAttributeOptions($attribute)
+    {
         $attribute = $this->eavConfig->getAttribute('catalog_product', $attribute);
         $options = $attribute->getSource()->getAllOptions();
 
         return $options;
     }
-
 }
