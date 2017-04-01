@@ -45,6 +45,6 @@ You can easy to config for this extension, go to Admin > Store > Configuration >
 
 - Icon Font: [We Love Icon Fonts](http://weloveiconfonts.com/) | Github: [https://github.com/TimPietrusky/weloveiconfonts](https://github.com/TimPietrusky/weloveiconfonts).
 
-- Thanks [Van Anh](https://github.com/anhhv123) for help me to sliced the toolbar and [Walish Le](https://github.com/walish) for many helpful advises.
+- Thank [Van Anh](https://github.com/anhhv123) for help me to slicing the toolbar and [Walish Le](https://github.com/walish) for some suggest.
 
 
