@@ -17,7 +17,7 @@ class ShareTo extends \Unet\SocialShare\Block\AbstractShare
      * setTemplate
      * __construct
      */
-    protected function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->setTemplate($this->template);

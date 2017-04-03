@@ -148,10 +148,6 @@ class Data extends AbstractHelper
      */
     public function getCurrentStoreUrl($fromStore)
     {
-        if (empty($fromStore)) {
-            $fromStore = false;
-        }
-
         return $this->storeManager->getStore()->getCurrentUrl($fromStore);
     }
 
