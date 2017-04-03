@@ -18,7 +18,7 @@ The easiest way to install the extension is to use [Composer](https://getcompose
 
 Run the following commands:
 
-- ```$ composer require unetstudio/magento-2-social-share```
+- ```$ composer require unetstudio/magento-2-social-share=dev-master```
 - ```$ bin/magento module:enable Unet_SocialShare```
 - ```$ bin/magento setup:upgrade && bin/magento setup:static-content:deploy```
 
