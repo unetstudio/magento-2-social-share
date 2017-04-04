@@ -29,9 +29,9 @@ Run the following commands:
 
 - Twitter card meta.
 
-- Social share toolbar in frontend.
+- Social share toolbar in the frontend.
 
-- Flexible toolbar widget for custom page.
+- Flexible toolbar widget for the custom page.
 
 ![demo](images/toolbar.png)
 
@@ -45,4 +45,4 @@ You can easy to config for this extension, go to Admin > Store > Configuration >
 
 - Icon Font: [We Love Icon Fonts](http://weloveiconfonts.com/) | Github: [https://github.com/TimPietrusky/weloveiconfonts](https://github.com/TimPietrusky/weloveiconfonts).
 
-- Thank [Van Anh](https://github.com/anhhv123) for help me to slicing the toolbar and [Walish Le](https://github.com/walish) for reviewing code.
+- Thank [Van Anh](https://github.com/anhhv123) for helping me to slice the toolbar and [Walish Le](https://github.com/walish) for reviewing code.
