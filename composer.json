@@ -12,7 +12,7 @@
     }
   ],
   "license": ["GNU"],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "repositories": [
     {
       "type": "composer",
