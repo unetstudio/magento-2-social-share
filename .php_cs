@@ -1,12 +1,11 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
 $directories = [
-    __DIR__.DS.'Adapter',
+    __DIR__.DS.'Api',
     __DIR__.DS.'Block',
-    __DIR__.DS.'Controller',
     __DIR__.DS.'Helper',
     __DIR__.DS.'Model',
-    __DIR__.DS.'Plugin',
+    __DIR__.DS.'Test',
 ];
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->in($directories);

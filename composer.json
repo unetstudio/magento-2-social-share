@@ -28,10 +28,12 @@
     "phpmd/phpmd": "^2.3",
     "squizlabs/php_codesniffer": "^2.5",
     "sebastian/phpcpd": "^2.0",
-    "satooshi/php-coveralls": "^1.0"
+    "satooshi/php-coveralls": "^1.0",
+    "friendsofphp/php-cs-fixer": "^2.2"
   },
   "scripts": {
-    "test": "phpunit --testdox"
+    "unit-test": "phpunit --testdox",
+    "cs-test": "phpcs"
   },
   "autoload": {
     "files": [ "registration.php" ],

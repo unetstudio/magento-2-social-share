@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="Unet_SocialShare">
+    <description>Unet_SocialShare coding standards</description>
+    <arg value="p"/>
+    <arg name="colors"/>
+    <rule ref="PSR2"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <file>Api</file>
+    <file>Block</file>
+    <file>Helper</file>
+    <file>Model</file>
+    <file>Test</file>
+</ruleset>
