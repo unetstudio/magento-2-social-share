@@ -1,4 +1,7 @@
 <?php
+/**
+ * SocialAdapter
+ */
 
 namespace Unet\SocialShare\Api;
 
@@ -13,5 +16,8 @@ interface SocialAdapter
     const GOOGLE_PLUS_SHARE_LINK = 'https://plus.google.com/share';
     const PINTEREST_SHARE_LINK = 'https://pinterest.com/pin/create/button';
 
+    /**
+     * getShareConfig
+     */
     public function getShareConfig();
 }
