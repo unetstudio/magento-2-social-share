@@ -11,12 +11,14 @@ install:
     - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
     - echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > auth.json
     - composer install --prefer-dist
+    - npm install
 
 script:
     - php vendor/bin/phpcs --standard=PSR2 Api/ Block/ Helper/ Model/ Test/
     - php vendor/bin/phpmd Api/,Block/,Helper/,Model/,Test/ text cleancode,codesize,controversial,design,naming,unusedcode
     - php vendor/bin/phpcpd Api/ Block/ Helper/ Model/ Test/
     - php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+    - ./node_modules/.bin/grunt ci
 
 after_script:
     - composer test

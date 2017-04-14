@@ -4,3 +4,4 @@ dev/bin/auth.json
 composer.lock
 vendor/
 build/
+node_modules/
