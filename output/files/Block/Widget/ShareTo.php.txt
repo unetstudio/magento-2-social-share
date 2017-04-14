@@ -27,3 +27,4 @@ class ShareTo extends \Unet\SocialShare\Block\AbstractShare
         $this->setTemplate($this->template);
     }
 }
+

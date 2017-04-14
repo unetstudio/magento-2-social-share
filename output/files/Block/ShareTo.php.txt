@@ -13,3 +13,4 @@ class ShareTo extends \Unet\SocialShare\Block\AbstractShare
 {
 
 }
+

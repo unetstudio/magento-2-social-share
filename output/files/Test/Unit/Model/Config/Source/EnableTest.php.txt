@@ -1,7 +1,4 @@
 <?php
-/**
- * EnableTest
- */
 
 namespace Unet\SocialShare\Test\Unit\Model\Config\Source;
 
@@ -21,9 +18,6 @@ class EnableTest extends \PHPUnit_Framework_TestCase
      */
     protected $expectConfig;
 
-    /**
-     * setUp
-     */
     public function setUp()
     {
         $objectManager = new \Magento\Framework\TestFramework\Unit\Helper\ObjectManager($this);
@@ -34,11 +28,9 @@ class EnableTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    /**
-     * testGetConfigSource
-     */
     public function testGetConfigSource()
     {
         $this->assertEquals($this->expectConfig, $this->configSource->toOptionArray());
     }
 }
+

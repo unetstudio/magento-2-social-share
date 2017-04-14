@@ -27,3 +27,4 @@ class AbstractShare extends \Magento\Framework\View\Element\Template implements 
         return $config;
     }
 }
+

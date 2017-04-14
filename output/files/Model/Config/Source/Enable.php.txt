@@ -1,7 +1,4 @@
 <?php
-/**
- * Enable
- */
 
 namespace Unet\SocialShare\Model\Config\Source;
 
@@ -23,3 +20,4 @@ class Enable implements \Magento\Framework\Option\ArrayInterface
         ];
     }
 }
+
