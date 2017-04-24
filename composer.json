@@ -33,8 +33,10 @@
     "phpdocumentor/phpdocumentor": "^2.8"
   },
   "scripts": {
-    "unit-test": "phpunit --testdox",
-    "cs-test": "phpcs"
+    "test": [
+      "phpunit --testdox",
+      "phpcs"
+    ]
   },
   "autoload": {
     "files": [ "registration.php" ],
