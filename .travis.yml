@@ -14,7 +14,7 @@ install:
     - npm install
 
 script:
-    - php vendor/bin/phpcs --standard=PSR2 Adapter/ Block/ Helper/ Model/ Test/
+    - php vendor/bin/phpcs --standard=PSR2 --exclude=Generic.Files.LineLength Adapter/ Block/ Helper/ Model/ Test/
     - php vendor/bin/phpcpd Adapter/ Block/ Helper/ Model/ Test/
     - php vendor/bin/phpmd Adapter/,Block/,Helper/,Model/,Test/ text cleancode,codesize,controversial,design,naming,unusedcode
     - php vendor/bin/phpcpd Adapter/ Block/ Helper/ Model/ Test/
