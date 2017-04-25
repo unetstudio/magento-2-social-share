@@ -14,13 +14,14 @@
     $language = $_themeHelper->getLanguage();
     $url = $block->getProduct()->getProductUrl();
     $canonicalUrl = $block->getProduct()->getProductUrl();
-    $twitterSite = $_themeHelper->getStoreConfig('unet_studio/social_share/twitter_site_name');
+    $facebookAppId = $_themeHelper->getStoreConfig('social_share/facebook/facebook_app_id');
+    $twitterSite = $_themeHelper->getStoreConfig('social_share/twitter/twitter_site_name');
 ?>
 
 <?php if ($language == \Unet\SocialShare\Helper\Data::MAIN_LANGUAGE): ?>
-<link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="x-default" />
+    <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="x-default" />
 <?php else: ?>
-<link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="<?php /* @escapeNotVerified */ echo $language; ?>" />
+    <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="<?php /* @escapeNotVerified */ echo $language; ?>" />
 <?php endif; ?>
 <link rel="canonical" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($canonicalUrl); ?>" />
 
@@ -30,14 +31,23 @@
 <meta property="og:image" content="<?php echo $block->escapeUrl($block->getImage($block->getProduct(), 'product_base_image')->getImageUrl()); ?>" />
 <meta property="og:description" content="<?php echo $block->escapeHtml($block->getProduct()->getShortDescription()); ?>" />
 <meta property="og:url" content="<?php echo $block->escapeUrl($url); ?>" />
+
+<?php if (!empty($facebookAppId)): ?>
+    <meta property="fb:app_id" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($facebookAppId); ?>" />
+<?php endif;?>
+
 <?php if ($priceAmount = $block->getProduct()->getFinalPrice()):?>
-<meta property="product:price:amount" content="<?php /* @escapeNotVerified */ echo $priceAmount; ?>"/>
-<?php echo $block->getChildHtml('meta.currency'); ?>
+    <meta property="product:price:amount" content="<?php /* @escapeNotVerified */ echo $priceAmount; ?>"/>
+    <?php echo $block->getChildHtml('meta.currency'); ?>
 <?php endif;?>
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="<?php /* @escapeNotVerified */ echo 'summary'; ?>">
-<meta name="twitter:site" content="<?php /* @escapeNotVerified */ echo '@'.$twitterSite; ?>" />
+
+<?php if (!empty($twitterSite)): ?>
+    <meta name="twitter:site" content="<?php /* @escapeNotVerified */ echo '@'.$block->escapeHtml($twitterSite); ?>" />
+<?php endif; ?>
+
 <meta name="twitter:title" content="<?php echo $block->escapeHtml($block->getProduct()->getName()); ?>">
 <meta name="twitter:description" content="<?php echo $block->escapeHtml($block->getProduct()->getShortDescription()); ?>">
 <meta name="twitter:image" content="<?php echo $block->escapeUrl($block->getImage($block->getProduct(), 'product_base_image')->getImageUrl()); ?>">

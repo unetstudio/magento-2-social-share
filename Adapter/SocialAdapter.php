@@ -3,11 +3,11 @@
  * SocialAdapter
  */
 
-namespace Unet\SocialShare\Api;
+namespace Unet\SocialShare\Adapter;
 
 /**
  * Class SocialAdapter
- * @package Unet\SocialShare\Api
+ * @package Unet\SocialShare\Adapter
  */
 interface SocialAdapter
 {

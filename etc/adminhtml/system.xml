@@ -15,14 +15,43 @@
                     <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
                 </field>
             </group>
-            <group id="network" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Social Network</label>
-                <field id="twitter_site_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Twitter Site Name</label>
+            <group id="facebook" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Facebook</label>
+                <field id="facebook_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                </field>
+                <field id="facebook_app_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application ID</label>
                     <depends>
-                        <field id="*/general/enable">1</field>
+                        <field id="*/facebook/facebook_enable">1</field>
+                    </depends>
+                    <comment>The Facebook application ID (no required)</comment>
+                </field>
+            </group>
+            <group id="twitter" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Twitter</label>
+                <field id="twitter_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                </field>
+                <field id="twitter_site_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Site Name</label>
+                    <depends>
+                        <field id="*/twitter/twitter_enable">1</field>
                     </depends>
                     <comment>The site name for Twitter share (e.g: unetstudio)</comment>
+                </field>
+            </group>
+            <group id="network" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Social Network</label>
+                <field id="google_plus_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Plus Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                </field>
+                <field id="pinterest_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pinterest Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
                 </field>
             </group>
         </section>

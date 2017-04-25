@@ -11,8 +11,16 @@
             <general>
                 <enable>1</enable>
             </general>
-            <network>
+            <facebook>
+                <facebook_enable>1</facebook_enable>
+            </facebook>
+            <twitter>
+                <twitter_enable>1</twitter_enable>
                 <twitter_site_name>unetstudio</twitter_site_name>
+            </twitter>
+            <network>
+                <google_plus_enable>1</google_plus_enable>
+                <pinterest_enable>1</pinterest_enable>
             </network>
         </social_share>
     </default>
