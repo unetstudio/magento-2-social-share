@@ -46,22 +46,22 @@ define(["jquery"], function ($) {
                 var $this = this;
                 var shareBlock = $(this.shareBlock);
                 for (var key in config) {
-                    if (config.hasOwnProperty(key) && config[key]['enable'] == "1") {
+                    if (config.hasOwnProperty(key) && config[key].enable === "1") {
                         var shareItem = $("<li>", {class: $this.itemClass + " " + $this.iconFont + "-" + key});
                         var shareLink = $("<a>");
                         var href = "";
                         switch (key) {
                             case "facebook":
-                                href = config[key]['link'] + "?u=" + url + "&title=" + $this.title;
+                                href = config[key].link + "?u=" + url + "&title=" + $this.title;
                                 break;
                             case "twitter":
-                                href = config[key]['link'] + "?text=" + $this.title + "&url=" + url;
+                                href = config[key].link + "?text=" + $this.title + "&url=" + url;
                                 break;
                             case "gplus":
-                                href = config[key]['link'] + "?url=" + url;
+                                href = config[key].link + "?url=" + url;
                                 break;
                             case "pinterest":
-                                href = config[key]['link'] + "?url=" + url + "&description=" + $this.title;
+                                href = config[key].link + "?url=" + url + "&description=" + $this.title;
                                 break;
                         }
 

@@ -3,7 +3,9 @@
     <description>Unet_SocialShare coding standards</description>
     <arg value="p"/>
     <arg name="colors"/>
-    <rule ref="PSR2"/>
+    <rule ref="PSR2">
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
     <file>Adapter</file>
     <file>Block</file>
