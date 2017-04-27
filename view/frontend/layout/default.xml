@@ -3,11 +3,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="head.additional">
-            <block class="Magento\Framework\View\Element\Template" ifconfig="social_share/general/enable" name="opengraph.general" template="Unet_SocialShare::opengraph.phtml" before="social.share.components" />
-            <block class="Magento\Framework\View\Element\Template" ifconfig="social_share/general/enable" name="social.share.components" template="Unet_SocialShare::components.phtml" after="-" />
+            <block class="Magento\Framework\View\Element\Template" name="opengraph.general" template="Unet_SocialShare::opengraph.phtml" before="social.share.components" />
+            <block class="Magento\Framework\View\Element\Template" name="social.share.components" template="Unet_SocialShare::components.phtml" after="-" />
         </referenceBlock>
         <referenceContainer name="root">
-            <block class="Unet\SocialShare\Block\ShareTo" ifconfig="social_share/general/enable" name="content.shareto" template="Unet_SocialShare::shareto.phtml" after="-" />
+            <block class="Unet\SocialShare\Block\ShareTo" ifconfig="social_share/general/global_mode" name="content.shareto" template="Unet_SocialShare::shareto.phtml" after="-" />
         </referenceContainer>
     </body>
 </page>
