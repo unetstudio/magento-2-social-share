@@ -10,9 +10,10 @@
             <resource>Unet_SocialShare::unet_studio</resource>
             <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
-                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Enable</label>
+                <field id="global_mode" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Global Mode</label>
                     <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                    <comment>Apply for all pages, set No for using only widget mode</comment>
                 </field>
             </group>
             <group id="facebook" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">

@@ -8,9 +8,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <social_share>
-            <general>
+            <global_mode>
                 <enable>1</enable>
-            </general>
+            </global_mode>
             <facebook>
                 <facebook_enable>1</facebook_enable>
             </facebook>

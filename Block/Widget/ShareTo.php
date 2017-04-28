@@ -9,7 +9,7 @@ namespace Unet\SocialShare\Block\Widget;
  * Class Share
  * @package Unet\SocialShare\Block\Widget
  */
-class ShareTo extends \Unet\SocialShare\Block\AbstractShare
+class ShareTo extends \Unet\SocialShare\Block\AbstractShare implements \Magento\Widget\Block\BlockInterface
 {
     /**
      * $template

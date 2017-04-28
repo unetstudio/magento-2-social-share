@@ -1,43 +1,17 @@
 <?php
-/**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-// @codingStandardsIgnoreFile
+/** @var $block \Magento\Framework\View\Element\Template **/
 ?>
 <?php
     $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
     $baseUrl = $_themeHelper->getBaseUrl();
     $site = $_themeHelper->getStoreName();
-    $type= 'og:page';
-    $title = (!empty($_themeHelper->getTitle())) ? $_themeHelper->getTitle() : '';
-    $description = '';
-    $image = '';
-    $url = $_themeHelper->getCurrentStoreUrl(false);
-    $canonicalUrl = $_themeHelper->getCurrentUrl();
-    if ($_themeHelper->getCmsPage()->getIdentifier()) {
-        $page = $_themeHelper->getCmsPage();
-        $title = $page->getTitle();
-        $description = $page->getData('meta_description');
-    }
-    else if ($_themeHelper->getCurrentCategory()) {
-        $category = $_themeHelper->getCurrentCategory();
-        $type = __('og:category');
-        $url = $category->getUrl();
-        $canonicalUrl = $category->getUrl();
-        $title = $category->getName();
-        $description = $category->getData('meta_description');
-        $image = $category->getImageUrl();
-    }
 
-    if (empty($image)) {
-        $image = $_themeHelper->getLogoSrc();
-    }
-
-    if (empty($description)) {
-        $description = $_themeHelper->getDefaultDescription();
-    }
+    $type= $block->getPageType();
+    $title = $block->getPageTitle();
+    $description = $block->getPageDescription();
+    $image = $block->getPageImage();
+    $url = $block->getPageUrl();
+    $canonicalUrl = $block->getCanonicalUrl();
 
     $language = $_themeHelper->getLanguage();
     $facebookAppId = $_themeHelper->getStoreConfig('social_share/facebook/facebook_app_id');
