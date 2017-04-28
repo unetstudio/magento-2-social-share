@@ -13,20 +13,20 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
     /**
      * @var \Unet\SocialShare\Helper\Data
      */
-    protected $_themeHelper;
+    protected $themeHelper;
 
     /**
      * OpenGraph constructor.
      * @param Template\Context $context
-     * @param \Unet\SocialShare\Helper\Data $_themeHelper
+     * @param \Unet\SocialShare\Helper\Data $themeHelper
      * @param array $data
      */
     public function __construct(
         Template\Context $context,
-        \Unet\SocialShare\Helper\Data $_themeHelper,
+        \Unet\SocialShare\Helper\Data $themeHelper,
         array $data
     ) {
-        $this->_themeHelper = $_themeHelper;
+        $this->themeHelper = $themeHelper;
         parent::__construct($context, $data);
     }
 
@@ -36,7 +36,7 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
     public function getPageType()
     {
         $type= 'og:page';
-        if ($this->_themeHelper->getCurrentCategory()) {
+        if ($this->themeHelper->getCurrentCategory()) {
             $type = 'og:category';
         }
 
@@ -48,7 +48,7 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
      */
     public function getPageUrl()
     {
-         $url = $this->_themeHelper->getCurrentUrl();
+         $url = $this->themeHelper->getCurrentUrl();
 
          return $url;
     }
@@ -58,7 +58,7 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
      */
     public function getCanonicalUrl()
     {
-        $canonicalUrl = $this->_themeHelper->getCurrentUrl();
+        $canonicalUrl = $this->themeHelper->getCurrentUrl();
 
         return $canonicalUrl;
     }
@@ -68,11 +68,11 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
      */
     public function getPageTitle()
     {
-        $title = $this->_themeHelper->getTitle();
-        if ($category = $this->_themeHelper->getCurrentCategory()) {
+        $title = $this->themeHelper->getTitle();
+        if ($category = $this->themeHelper->getCurrentCategory()) {
             $title = $category->getName();
-        } else if ($this->_themeHelper->getCmsPage()->getIdentifier()) {
-            $title = $this->_themeHelper->getCmsPage()->getTitle();
+        } elseif ($this->themeHelper->getCmsPage()->getIdentifier()) {
+            $title = $this->themeHelper->getCmsPage()->getTitle();
         }
 
         return $title;
@@ -83,11 +83,11 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
      */
     public function getPageDescription()
     {
-        $description = $this->_themeHelper->getDefaultDescription();
-        if ($category = $this->_themeHelper->getCurrentCategory()) {
+        $description = $this->themeHelper->getDefaultDescription();
+        if ($category = $this->themeHelper->getCurrentCategory()) {
             $description = $category->getData('meta_description');
-        } else if ($this->_themeHelper->getCmsPage()->getIdentifier()) {
-            $description = $this->_themeHelper->getCmsPage()->getData('meta_description');
+        } elseif ($this->themeHelper->getCmsPage()->getIdentifier()) {
+            $description = $this->themeHelper->getCmsPage()->getData('meta_description');
         }
 
         return $description;
@@ -98,8 +98,8 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
      */
     public function getPageImage()
     {
-        $image = $this->_themeHelper->getLogoSrc();
-        if ($category = $this->_themeHelper->getCurrentCategory()) {
+        $image = $this->themeHelper->getLogoSrc();
+        if ($category = $this->themeHelper->getCurrentCategory()) {
             $image = $category->getImageUrl();
         }
 
