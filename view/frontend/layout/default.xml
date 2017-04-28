@@ -3,7 +3,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="head.additional">
-            <block class="Magento\Framework\View\Element\Template" name="opengraph.general" template="Unet_SocialShare::opengraph.phtml" before="social.share.components" />
+            <block class="Unet\SocialShare\Block\OpenGraph" name="opengraph.general" template="Unet_SocialShare::opengraph.phtml" before="social.share.components" />
             <block class="Magento\Framework\View\Element\Template" name="social.share.components" template="Unet_SocialShare::components.phtml" after="-" />
         </referenceBlock>
         <referenceContainer name="root">
