@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "eslint": "^3.19.0",
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "~1.0.0",
     "grunt-jscs": "~2.8.0",
