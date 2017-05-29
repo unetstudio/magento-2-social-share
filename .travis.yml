@@ -19,7 +19,6 @@ script:
     - php vendor/bin/phpmd Adapter/,Block/,Helper/,Model/,Test/ text cleancode,codesize,controversial,design,naming,unusedcode
     - php vendor/bin/phpcpd Adapter/ Block/ Helper/ Model/ Test/
     - php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-    - php vendor/bin/phpdoc run -d Adapter,Block,Helper,Model,Test -t build/doc
     - ./node_modules/.bin/grunt ci
 
 after_script:
