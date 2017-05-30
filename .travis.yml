@@ -6,6 +6,10 @@ php:
     - 5.6
     - 7.0
 
+cache:
+  directories:
+    - $HOME/.composer/cache    
+
 install:
     - composer self-update -q
     - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
