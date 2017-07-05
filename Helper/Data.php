@@ -168,6 +168,14 @@ class Data extends AbstractHelper
     }
 
     /**
+     * @return mixed
+     */
+    public function getCurrentProduct()
+    {
+        return $this->registry->registry('current_product');
+    }
+
+    /**
      * @param $path
      * @return mixed
      */

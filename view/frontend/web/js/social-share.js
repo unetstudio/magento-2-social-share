@@ -10,6 +10,7 @@ define(["jquery"], function ($) {
 			config: data.config,
 			url: data.url,
 			title: data.title,
+			image: data.image,
 			shareBlock: "#shareto .share-list",
 			shareButton: "#shareto .button",
 			itemClass: "share-icon",
@@ -51,19 +52,19 @@ define(["jquery"], function ($) {
 						var shareLink = $("<a>");
 						var href = "";
 						switch (key) {
-						case "facebook":
-							href = config[key].link + "?u=" + url + "&title=" + $this.title;
-							break;
-						case "twitter":
-							href = config[key].link + "?text=" + $this.title + "&url=" + url;
-							break;
-						case "gplus":
-							href = config[key].link + "?url=" + url;
-							break;
-						case "pinterest":
-							href = config[key].link + "?url=" + url + "&description=" + $this.title;
-							break;
-						}
+                            case 'facebook':
+                                href = config[key] + '?t=' + $this.title + '&u=' + url;
+                                break;
+                            case 'twitter':
+                                href = config[key] + '?text=' + $this.title + '&url=' + url;
+                                break;
+                            case 'google-plus':
+                                href = config[key] + '?url=' + url;
+                                break;
+                            case 'pinterest':
+                                href = config[key] + '?description=' + $this.title + '&url=' + url + '&media=' + this.image;
+                                break;
+                        }
 
             			// render item
 						shareLink.attr("href", href);
