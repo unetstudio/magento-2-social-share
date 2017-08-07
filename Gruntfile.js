@@ -1,29 +1,16 @@
-module.exports = function( grunt ) {
+module.exports = function (grunt) {
     "use strict";
 
     var key;
-    grunt.initConfig( {
+    grunt.initConfig({
         pkg: grunt.file.readJSON( "package.json" ),
-        jshint: {
+        eslint: {
             options: {
-                jshintrc: true
+                configFile: '.eslintrc.js'
             },
-            gruntfile: "Gruntfile.js",
-            src: "view/**/*.js"
-        },
-        jscs: {
-            gruntfile: "Gruntfile.js",
-            src: "view/**/*.js",
-            options: {
-                config: ".jscsrc"
-            }
-        },
-        jsonlint: {
-            pkg: {
-                src: [ "package.json" ]
-            }
+            target: ['view/frontend/web/js/social-share.js']
         }
-    } );
+    });
 
     // Loading dependencies
     for ( key in grunt.file.readJSON( "package.json" ).devDependencies ) {
@@ -32,6 +19,6 @@ module.exports = function( grunt ) {
         }
     }
 
-    grunt.registerTask( "ci", [ "jshint", "jsonlint" ] );
-    grunt.registerTask( "default", [ "ci" ] );
+    grunt.registerTask('ci', ['eslint']);
+    grunt.registerTask("default", ["ci"]);
 };

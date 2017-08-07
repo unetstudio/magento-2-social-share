@@ -22,10 +22,6 @@ script:
     - php vendor/bin/phpcpd Adapter/ Block/ Helper/ Model/ Test/
     - php vendor/bin/phpmd Adapter/,Block/,Helper/,Model/,Test/ text cleancode,codesize,controversial,design,naming,unusedcode
     - php vendor/bin/phpcpd Adapter/ Block/ Helper/ Model/ Test/
-    - php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-    - ./node_modules/.bin/grunt ci
 
 after_script:
-    - composer test
-    - php vendor/bin/coveralls
-    
+    - ./node_modules/.bin/grunt ci
