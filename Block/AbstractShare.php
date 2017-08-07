@@ -81,7 +81,8 @@ abstract class AbstractShare extends \Magento\Framework\View\Element\Template im
     /**
      * @return mixed
      */
-    public function getImage() {
+    public function getImage()
+    {
         return $this->openGraph->getPageImage();
     }
 }
