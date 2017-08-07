@@ -1,5 +1,6 @@
 <?php
 /** @var $block \Unet\SocialShare\Block\ShareTo **/
+/** @var $_themeHelper \Unet\SocialShare\Helper\Data **/
 ?>
 <div id="shareto" class="shareto" data-role="share-to-links">
 	<div class="social">
@@ -16,7 +17,7 @@
             "Unet_SocialShare/js/social-share" : {
                 "title": "<?php /* @escapeNotVerified */ echo $_themeHelper->getTitle(); ?>",
                 "image": "<?php /* @escapeNotVerified */ echo $_themeHelper->getTitle(); ?>",
-                "url": "<?php /* @escapeNotVerified */ echo $_themeHelper->getCurrentStoreUrl(false); ?>",
+                "url": "<?php /* @escapeNotVerified */ echo $_themeHelper->getCurrentUrl(false); ?>",
                 "config": <?php /* @escapeNotVerified */ echo json_encode($block->getShareConfig()); ?>
             }
         }

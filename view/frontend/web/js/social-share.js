@@ -53,16 +53,16 @@ define(["jquery"], function ($) {
                         var href = "";
                         switch (key) {
                         case "facebook":
-                            href = config[key] + "?t=" + $this.title + "&u=" + url;
+                            href = config[key].link + "?t=" + $this.title + "&u=" + url;
                             break;
                         case "twitter":
-                            href = config[key] + "?text=" + $this.title + "&url=" + url;
+                            href = config[key].link + "?text=" + $this.title + "&url=" + url;
                             break;
-                        case "google-plus":
-                            href = config[key] + "?url=" + url;
+                        case "gplus":
+                            href = config[key].link + "?url=" + url;
                             break;
                         case "pinterest":
-                            href = config[key] + "?description=" + $this.title + "&url=" + url + "&media=" + this.image;
+                            href = config[key].link + "?description=" + $this.title + "&url=" + url + "&media=" + this.image;
                             break;
                         }
 
