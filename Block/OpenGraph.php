@@ -16,17 +16,26 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
     protected $themeHelper;
 
     /**
+     * @var \Magento\Catalog\Block\Product\ListProduct
+     */
+    protected $listProduct;
+
+    /**
      * OpenGraph constructor.
      * @param Template\Context $context
      * @param \Unet\SocialShare\Helper\Data $themeHelper
+     * @param \Magento\Catalog\Block\Product\ListProduct $listProduct
      * @param array $data
      */
     public function __construct(
-        Template\Context $context,
+        \Magento\Framework\View\Element\Template\Context $context,
         \Unet\SocialShare\Helper\Data $themeHelper,
-        array $data
+        \Magento\Catalog\Block\Product\ListProduct $listProduct,
+        array $data = []
     ) {
         $this->themeHelper = $themeHelper;
+        $this->listProduct = $listProduct;
+
         parent::__construct($context, $data);
     }
 
@@ -101,6 +110,9 @@ class OpenGraph extends \Magento\Framework\View\Element\Template
         $image = $this->themeHelper->getLogoSrc();
         if ($category = $this->themeHelper->getCurrentCategory()) {
             $image = $category->getImageUrl();
+        }
+        if ($product = $this->themeHelper->getCurrentProduct()) {
+            $image = $this->listProduct->getImage($product, 'product_base_image')->getImageUrl();
         }
 
         return $image;

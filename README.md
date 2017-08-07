@@ -23,6 +23,11 @@ Run the following commands:
 - ```$ php bin/magento setup:upgrade```
 - ```$ php bin/magento setup:static-content:deploy```
 
+### Enable
+
+Go to Admin > Store > Configuration > Unet Studio > Social Share:
+
+- In General section, set value of Global Mode to 'Yes' to enable share toolbar in all pages, else the share toolbar just show by a widget.
 
 ### Features
 

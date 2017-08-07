@@ -1,12 +1,13 @@
 module.exports = {
     "env": {
-        "browser": true
+        "browser": true,
+        "amd": true
     },
     "extends": "eslint:recommended",
     "rules": {
         "indent": [
             "error",
-            "tab"
+            4
         ],
         "linebreak-style": [
             "error",
