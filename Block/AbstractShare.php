@@ -14,7 +14,12 @@ abstract class AbstractShare extends \Magento\Framework\View\Element\Template im
     /**
      * @var \Unet\SocialShare\Helper\Data
      */
-    private $helper;
+    protected $helper;
+
+    /**
+     * @var OpenGraph
+     */
+    protected $openGraph;
 
     const FACEBOOK_ENABLE_PATH = 'social_share/facebook/facebook_enable';
 
@@ -23,6 +28,10 @@ abstract class AbstractShare extends \Magento\Framework\View\Element\Template im
     const GOOGLE_PLUS_ENABLE_PATH = 'social_share/network/google_plus_enable';
 
     const PINTEREST_ENABLE_PATH = 'social_share/network/pinterest_enable';
+
+    const FACEBOOK_APP_ID = 'social_share/facebook/facebook_app_id';
+
+    const TWITTER_NAME = 'social_share/twitter/twitter_site_name';
 
     /**
      * AbstractShare constructor.
@@ -33,9 +42,11 @@ abstract class AbstractShare extends \Magento\Framework\View\Element\Template im
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Unet\SocialShare\Helper\Data $helper,
-        array $data
+        \Unet\SocialShare\Block\OpenGraph $openGraph,
+        array $data = []
     ) {
         $this->helper = $helper;
+        $this->openGraph = $openGraph;
         parent::__construct($context, $data);
     }
 
@@ -65,5 +76,12 @@ abstract class AbstractShare extends \Magento\Framework\View\Element\Template im
         ];
 
         return $config;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage() {
+        return $this->openGraph->getPageImage();
     }
 }

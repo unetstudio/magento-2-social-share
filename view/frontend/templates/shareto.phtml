@@ -16,8 +16,8 @@
         "[data-role=share-to-links]": {
             "Unet_SocialShare/js/social-share" : {
                 "title": "<?php /* @escapeNotVerified */ echo $_themeHelper->getTitle(); ?>",
-                "image": "<?php /* @escapeNotVerified */ echo $_themeHelper->getTitle(); ?>",
-                "url": "<?php /* @escapeNotVerified */ echo $_themeHelper->getCurrentUrl(false); ?>",
+                "image": "<?php /* @escapeNotVerified */ echo $block->getImage(); ?>",
+                "url": "<?php /* @escapeNotVerified */ echo $_themeHelper->getCurrentUrl(); ?>",
                 "config": <?php /* @escapeNotVerified */ echo json_encode($block->getShareConfig()); ?>
             }
         }
