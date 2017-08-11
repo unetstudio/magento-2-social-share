@@ -255,4 +255,12 @@ class Data extends AbstractHelper
 
         return $options;
     }
+
+    /**
+     * @return mixed
+     */
+    public function isFrontUrlSecure()
+    {
+        return $this->storeManager->getStore()->isFrontUrlSecure();
+    }
 }
