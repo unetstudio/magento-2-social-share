@@ -1,5 +1,6 @@
 <?php
 /** @var $block Unet\SocialShare\Block\OpenGraph **/
+/** @var $_themeHelper Unet\SocialShare\Helper\Data **/
 ?>
 <?php
     $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
@@ -16,6 +17,8 @@
     $language = $_themeHelper->getLanguage();
     $facebookAppId = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::FACEBOOK_APP_ID);
     $twitterSite = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::TWITTER_NAME);
+
+    $isFrontUrlSecure = $_themeHelper->isFrontUrlSecure();
 ?>
 
 <?php if ($language == \Unet\SocialShare\Helper\Data::MAIN_LANGUAGE): ?>
@@ -29,7 +32,9 @@
 <meta property="og:type" content="<?php /* @escapeNotVerified */ echo $type; ?>" />
 <meta property="og:title" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($title); ?>" />
 <meta property="og:image" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($image); ?>" />
-<meta property="og:image:secure_url" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($image); ?>" />
+<?php if ($isFrontUrlSecure): ?>
+    <meta property="og:image:secure_url" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($image); ?>" />
+<?php endif; ?>
 <meta property="og:image:width" content="<?php /* @escapeNotVerified */ echo \Unet\SocialShare\Adapter\SocialAdapter::IMAGE_WIDTH; ?>" />
 <meta property="og:image:height" content="<?php /* @escapeNotVerified */ echo \Unet\SocialShare\Adapter\SocialAdapter::IMAGE_HEIGHT; ?>" />
 <meta property="og:description" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($description); ?>" />
