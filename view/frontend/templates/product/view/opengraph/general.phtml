@@ -6,20 +6,11 @@
     $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
     $_product = $block->getProduct();
     $baseUrl = $_themeHelper->getBaseUrl();
-    $language = $_themeHelper->getLanguage();
     $url = $_product->getProductUrl();
-    $canonicalUrl = $_product->getProductUrl();
     $facebookAppId = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::FACEBOOK_APP_ID);
     $twitterSite = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::TWITTER_NAME);
     $isFrontUrlSecure = $_themeHelper->isFrontUrlSecure();
 ?>
-
-<?php if ($language == \Unet\SocialShare\Helper\Data::MAIN_LANGUAGE): ?>
-    <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="x-default" />
-<?php else: ?>
-    <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="<?php /* @escapeNotVerified */ echo $language; ?>" />
-<?php endif; ?>
-<link rel="canonical" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($canonicalUrl); ?>" />
 
 <!-- Open Graph data -->
 <meta property="og:type" content="og:product" />
@@ -52,3 +43,5 @@
 <meta name="twitter:title" content="<?php echo $block->escapeHtml($_product->getName()); ?>">
 <meta name="twitter:description" content="<?php echo $block->escapeHtml($_product->getShortDescription()); ?>">
 <meta name="twitter:image" content="<?php echo $block->escapeUrl($block->getImage($_product, 'product_base_image')->getImageUrl()); ?>">
+
+<!-- Open Graph data -->

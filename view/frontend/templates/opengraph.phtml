@@ -12,21 +12,12 @@
     $description = $block->getPageDescription();
     $image = $block->getPageImage();
     $url = $block->getPageUrl();
-    $canonicalUrl = $block->getCanonicalUrl();
 
-    $language = $_themeHelper->getLanguage();
     $facebookAppId = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::FACEBOOK_APP_ID);
     $twitterSite = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::TWITTER_NAME);
 
     $isFrontUrlSecure = $_themeHelper->isFrontUrlSecure();
 ?>
-
-<?php if ($language == \Unet\SocialShare\Helper\Data::MAIN_LANGUAGE): ?>
-    <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="x-default" />
-<?php else: ?>
-    <link rel="alternate" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($baseUrl); ?>" hreflang="<?php /* @escapeNotVerified */ echo $language; ?>" />
-<?php endif; ?>
-<link rel="canonical" href="<?php /* @escapeNotVerified */ echo $block->escapeHtml($canonicalUrl); ?>" />
 
 <!-- Open Graph data -->
 <meta property="og:type" content="<?php /* @escapeNotVerified */ echo $type; ?>" />
@@ -54,3 +45,5 @@
 <meta name="twitter:title" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($title); ?>" />
 <meta name="twitter:description" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($description); ?>" />
 <meta name="twitter:image" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($image); ?>" />
+
+<!-- Open Graph data -->
