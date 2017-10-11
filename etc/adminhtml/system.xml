@@ -41,7 +41,7 @@
                     <depends>
                         <field id="*/twitter/twitter_enable">1</field>
                     </depends>
-                    <comment>The site name for Twitter share (e.g: unetstudio)</comment>
+                    <comment>The site name for Twitter share (no required)</comment>
                 </field>
             </group>
             <group id="network" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
