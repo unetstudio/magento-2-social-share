@@ -15,8 +15,6 @@ interface SocialAdapter
     const TWITTER_SHARE_LINK = 'https://twitter.com/intent/tweet';
     const GOOGLE_PLUS_SHARE_LINK = 'https://plus.google.com/share';
     const PINTEREST_SHARE_LINK = 'https://pinterest.com/pin/create/button/';
-    const IMAGE_WIDTH = 250;
-    const IMAGE_HEIGHT = 250;
 
     /**
      * getShareConfig
