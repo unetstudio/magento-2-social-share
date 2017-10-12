@@ -15,6 +15,20 @@
                     <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
                     <comment>Apply for all pages, set No for using only widget mode</comment>
                 </field>
+                <field id="image_width" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Width</label>
+                    <depends>
+                        <field id="*/general/global_mode">1</field>
+                    </depends>
+                    <comment>The width of image display on share popup</comment>
+                </field>
+                <field id="image_height" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Height</label>
+                    <depends>
+                        <field id="*/general/global_mode">1</field>
+                    </depends>
+                    <comment>The height of image display on share popup</comment>
+                </field>
             </group>
             <group id="facebook" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Facebook</label>
