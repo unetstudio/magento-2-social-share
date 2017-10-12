@@ -45,6 +45,8 @@ Go to Admin > Store > Configuration > Unet Studio > Social Share:
 
 You can easy to config for this extension, go to Admin > Store > Configuration > Unet Studio > Social Share.
 
+The quick way to access configuration page, in Admin > Content > Unet Studio > Social Share.
+
 ![demo](images/configuration.png)
 
 ### Credit

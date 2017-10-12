@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+	   <add id="Unet_SocialShare::content" title="Unet Studio" module="Unet_SocialShare" sortOrder="200" parent="Magento_Backend::content" resource="Unet_SocialShare::unet_studio"/>
+	   <add id="Unet_SocialShare::configuration" title="Configuration" module="Unet_SocialShare" sortOrder="10" parent="Unet_SocialShare::content" action="adminhtml/system_config/edit/section/social_share" resource="Unet_SocialShare::unet_studio"/>
+    </menu>
+</config>
