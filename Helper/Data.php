@@ -55,6 +55,10 @@ class Data extends AbstractHelper
      * const
      */
     const MAIN_LANGUAGE = 'en-US';
+    const IMAGE_WIDTH_PATH = 'social_share/general/image_width';
+    const IMAGE_WIDTH_DEFAULT = 250;
+    const IMAGE_HEIGHT_PATH = 'social_share/general/image_height';
+    const IMAGE_HEIGHT_DEFAULT = 250;
 
     /**
      * Data constructor.
@@ -262,5 +266,21 @@ class Data extends AbstractHelper
     public function isFrontUrlSecure()
     {
         return $this->storeManager->getStore()->isFrontUrlSecure();
+    }
+
+    /**
+     * @return int|mixed
+     */
+    public function getImageWidth()
+    {
+        return $this->getStoreConfig(self::IMAGE_WIDTH_PATH) ? $this->getStoreConfig(self::IMAGE_WIDTH_PATH) : self::IMAGE_WIDTH_DEFAULT;
+    }
+
+    /**
+     * @return int|mixed
+     */
+    public function getImageHeight()
+    {
+        return $this->getStoreConfig(self::IMAGE_HEIGHT_PATH) ? $this->getStoreConfig(self::IMAGE_HEIGHT_PATH) : self::IMAGE_HEIGHT_DEFAULT;
     }
 }
