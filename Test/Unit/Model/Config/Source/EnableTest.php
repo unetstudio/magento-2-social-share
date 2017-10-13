@@ -41,4 +41,13 @@ class EnableTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($this->expectConfig, $this->configSource->toOptionArray());
     }
+
+    /**
+     * tearDown
+     */
+    protected function tearDown()
+    {
+        $this->configSource = null;
+        $this->expectConfig = null;
+    }
 }

@@ -26,17 +26,18 @@
   "require-dev": {
     "phpunit/phpunit": "^4.8",
     "phpmd/phpmd": "^2.3",
-    "squizlabs/php_codesniffer": "^2.5",
     "sebastian/phpcpd": "^2.0",
     "satooshi/php-coveralls": "^1.0",
     "friendsofphp/php-cs-fixer": "^2.2",
-    "phpdocumentor/phpdocumentor": "^2.8"
+    "squizlabs/php_codesniffer": "*",
+    "magento-ecg/coding-standard": "^3.1"
   },
   "scripts": {
     "test": [
       "phpunit --testdox",
       "phpcs"
-    ]
+    ],
+    "ecg": "php vendor/bin/phpcs --standard=./vendor/magento-ecg/coding-standard/EcgM2 Adapter/ Block/ Helper/ Model/ Test/"
   },
   "autoload": {
     "files": [ "registration.php" ],
