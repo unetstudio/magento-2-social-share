@@ -16,7 +16,6 @@
             </facebook>
             <twitter>
                 <twitter_enable>1</twitter_enable>
-                <twitter_site_name>unetstudio</twitter_site_name>
             </twitter>
             <network>
                 <google_plus_enable>1</google_plus_enable>
