@@ -49,6 +49,10 @@ The quick way to access configuration page, in Admin > Content > Unet Studio > S
 
 ![demo](images/configuration.png)
 
+### Contributor's guide
+
+View on [Wiki](https://github.com/unetstudio/magento-2-social-share/wiki) of this repository.
+
 ### Credit
 
 - Icon Font: [We Love Icon Fonts](http://weloveiconfonts.com/) | Github: [https://github.com/TimPietrusky/weloveiconfonts](https://github.com/TimPietrusky/weloveiconfonts).
