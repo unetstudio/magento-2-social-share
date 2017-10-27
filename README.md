@@ -6,11 +6,6 @@ Social share toolbar for Magento 2 site
 ![Magento 2.1](https://img.shields.io/badge/Magento-%3E=2.1-blue.svg)
 ![PHP >= 5.6](https://img.shields.io/badge/PHP-%3E=5.6-green.svg)
 
-Documentation & demo
---------------
-
-Live demo on [http://magento2.newbie-dev.net/](http://magento2.newbie-dev.net/)
-
 Install
 ------------
 
